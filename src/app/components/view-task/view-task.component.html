@@ -1,0 +1,37 @@
+<html>
+<body style="background-color: aliceblue;">
+	<div class="col-md-12">
+		<h1 style="margin: auto; color: darkblue" align="center">Manage Tasks</h1>
+		<button class="btn btn-primary float-right mb-3" (click)="add()">
+			<i class="fa fa-plus" aria-hidden="true"></i> Add Task
+		</button>
+		<table class="table table-striped" border="1" align="center">
+			<thead>
+				<tr align="center">
+					<th>Task No.</th>
+					<th>Task Name</th>
+					<th>Summary</th>
+					<th>Description</th>
+					<th class="action-td">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let task of taskList; let i = index;">
+					<td>{{i+1}}</td>
+					<td>{{task.name}}</td>
+					<td>{{task.summary}}</td>
+					<td [innerHTML]="task.description" class="description-td">{{task.description}}</td>
+					<td align="center">
+						<button class="btn btn-primary" (click)="edit(task.id)">
+							<i class="fa fa-pencil" aria-hidden="true"></i> Edit
+						</button>&nbsp;
+						<button class="btn btn-danger" (click)="delete(task.id)">
+							<i class="fa fa-trash" aria-hidden="true"></i> Delete
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

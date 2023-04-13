@@ -1,0 +1,35 @@
+<html>
+<body style="background-color: aliceblue;">
+	<h1 align="center" style="color: darkblue">Update Task</h1>
+	<div class="col-md-4 container">
+		<form [formGroup]="editForm" (ngSubmit)="updateTask()">
+			<div class="form-group">
+				<label>Task Name</label><em>*</em> <input class="form-control"
+					required [(ngModel)]="taskList.name" formControlName="name"
+					placeholder="Enter Task Name">
+			</div>
+			<div class="form-group">
+				<label>Summary</label> <input class="form-control"
+					[(ngModel)]="taskList.summary" formControlName="summary"
+					placeholder="Enter Summary">
+			</div>
+			<div class="form-group">
+				<label>Description</label>
+				<textarea class="form-control" [(ngModel)]="taskList.description"
+					formControlName="description" hidden
+					placeholder="Enter Description" rows="4" cols="50"></textarea>
+				<ckeditor formControlName="description"></ckeditor>
+			</div>
+			<div align="center">
+				<button type="submit" class="btn btn-success">
+					<i class="fa fa-check" aria-hidden="true"></i> Submit
+				</button>
+				&nbsp;&nbsp;
+				<button class="btn btn-danger" (click)="cancel()">
+					<i class="fa fa-times" aria-hidden="true"></i> Cancel
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
